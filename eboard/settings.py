@@ -25,7 +25,7 @@ SECRET_KEY = '+bxppj=d=7t!vzkj1l+-(qohn85-0@w1(f)0v-@q7f7*+bb0e1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['eboardapp.herokuapp.com']
 
 
 # Application definition
