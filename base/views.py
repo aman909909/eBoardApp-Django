@@ -3,6 +3,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+
+
 from .models import board, nlist, card
 
 def home(request):
@@ -67,7 +70,7 @@ def logoutUser(request):
     logout(request)
     return render(request,'base/home.html')
 
-
+@login_required(login_url='login_page')
 def newBoard(request):
     if request.method=="POST":
         b = board()
@@ -81,14 +84,14 @@ def newBoard(request):
 
     return render(request,'base/newboard.html')
 
-
+@login_required(login_url='login_page')
 def dashboard(request):
 
     b = board.objects.all().filter(user=request.user).order_by('-id')
     return render(request,'base/dashboard.html',{
         'b':b
     })
-
+@login_required(login_url='login_page')
 def newList(request, z):
     if request.method=="POST":
         z=int(z)
@@ -110,7 +113,7 @@ def newList(request, z):
 
 
 
-
+@login_required(login_url='login_page')
 def boardDisplay(request, z):
     l = nlist.objects.all().filter(parent = z)
     c = card.objects.all()
@@ -122,7 +125,7 @@ def boardDisplay(request, z):
     }
     return render(request, 'base/board.html',context)
     
-
+@login_required(login_url='login_page')
 def addCard(request,z):
     if request.method=="POST":
         c = card()
@@ -145,7 +148,7 @@ def addCard(request,z):
         
         return redirect('board_page',z=sen)
 
-
+@login_required(login_url='login_page')
 def dellist(request, z):
     
     ll = nlist.objects.all().filter(pk=z)

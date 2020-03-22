@@ -73,7 +73,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'eboard.wsgi.application'
 
-
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR,  'templates'),
+    # Add to this list all the locations containing your static files 
+)
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
