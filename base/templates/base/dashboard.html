@@ -1,0 +1,37 @@
+{%extends 'base/layout.html'%}
+{%load static%}
+{%block title%} Dashboard{%endblock%}
+
+{%block head%}
+<link rel="stylesheet" href="{%static 'css/dashboard.css'%}">
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+<link href="https://fonts.googleapis.com/css?family=Patrick+Hand|Permanent+Marker&display=swap" rel="stylesheet">
+ {%endblock%}
+
+{%block content%}
+    <div class="container" style="position: relative;">
+        <h2 class="text-center mt-4 " style="color: white;">DASHBOARD</h2>
+        <div id="personal" class="mt-5">
+            <h4 class="define_text">Personal Boards 
+                <span class="mt-5">
+                    <a href="{%url 'newboard_page'%}"><button class="btn btn-md btn-info"> <i style="font-size: 30px;" class="fas fa-plus-circle mr-1"></i></button></a>
+                </span>
+            </h4>
+            <hr class="define_hr">
+            <div class="row ml-1">
+                {%for i in b%}
+                <div class=" clt col-12 col-md-3 mr-5 mb-5 rounded ">
+                    <div class="boardname mt-2">{{i.name}}</div>
+                    <hr class="mt-2">
+                    <div class="boardname text-secondary" style="font-size: 16px; font-weight: lighter;"><i class="far fa-clipboard"></i> {{i.description | truncatewords:10}}</div>
+                    <div class="boardname text-secondary mt-2" style="font-size: 16px; font-weight: lighter;"><i class="fas fa-clock"></i> {{i.date_created}}</div>
+                    <div class="d-flex align-items-baseline">
+                        <a href="{%url 'board_page' z=i.id%}"><button class="btn btn-warning mb-3 mt-5 btn-sm">Click to open >></button></a>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+
+        </div>
+    </div>
+{%endblock%}

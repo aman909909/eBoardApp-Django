@@ -1,0 +1,19 @@
+#mainh1{
+    text-align: center;
+    margin-top: 90px;
+    font-size: 4rem;
+    text-decoration: underline;
+    color: #e1eab6;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 10px;
+}
+.jumbotron{
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    background-color: #70c4eb;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+
+}
+img{
+    width: 200px;
+}

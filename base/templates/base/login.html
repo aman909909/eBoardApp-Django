@@ -1,0 +1,47 @@
+{% extends 'base/layout.html'%}
+{%load static%}
+{%block head%}
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{%endblock%}
+{%block title%}ePool | Login{%endblock%}
+
+{%block content%}
+<h1  id="mainh1"> USER LOGIN</h1>
+
+<div class="container" style="margin-top: 2%;">
+    <div class="jumbotron ml-auto mt-auto mb-auto">
+      <div class="row">
+        <div class="col-6">
+          <img id="img" class="ml-5 img-fluid" src="{%static 'images/login.jpg'%}" style="height: 410px; border-radius: 10%; width: 410px;" >
+        </div>
+        <div class="col-6 mt-2">
+        <form method="POST" action="" style="width: 50%;" class="ml-auto mr-auto">
+            {%csrf_token%}
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp" placeholder="Enter Username">
+            </div>
+            <div class="form-group mt-5">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            {% for m in messages %}
+            <div class="alert {% if m.tags == 'success' %}alert-success{% endif %}{% if m.tags == 'info' %}alert-danger{% endif %}">
+              {{m}}
+            </div>
+            {% endfor %}
+           
+            <button type="submit" class="btn btn-primary mt-3">Login</button>
+            <h5 class="mt-5">Don't have an account? <a href="{%url 'signup_page'%}">Signup</a></h5>
+
+        </form>
+      </div>
+      </div>
+    </div>
+</div>
+{%endblock%}

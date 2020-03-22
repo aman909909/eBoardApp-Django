@@ -1,0 +1,59 @@
+{%extends 'base/layout.html'%}
+{%load static%}
+{%block title%}eBoard | Home{%endblock%}
+
+{%block head%}
+<link rel="stylesheet" href="{%static 'css/home.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+<style>
+    .jumbotron {
+         background-image: url("{%static 'images/home1.jpg'%}");
+         background-size: cover;
+         height: 500px;
+    }
+</style>
+{%endblock%}
+
+{%block content%}
+   <div class="jumbotron mb-5">
+        <div class="row">
+            <div class="col-8">
+
+            </div>
+            <div class="col-4">
+                <div id="headt">
+                    Change the way you plan events
+                </div>
+            </div>
+        </div>
+   </div>
+
+   <div class="midtext">
+       PLAN | ORGANISE | TEAM-UP
+   </div>
+   <div class="row r2 mt-5" style="margin-bottom: 400px;">
+       <div class="col-4">
+           <img src="{%static 'images/home11.jpg'%}" class="img-fluid rounded">
+           <div class="lastx">
+               Create new personal boards
+           </div>
+       </div>
+       
+       <div class="col-4">
+           <div class="notif">
+               Amazing feature to make your work organised!
+           </div>
+       </div>
+
+    <div class="col-4">
+        <img src="{%static 'images/home33.png'%}" class="img-fluid rounded">
+        <div class="lastx">
+            Make, edit and delete lists
+        </div>
+    </div>
+   </div>
+
+{%endblock%}

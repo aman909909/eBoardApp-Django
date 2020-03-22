@@ -1,0 +1,31 @@
+#main_nav{
+    background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#45484d+25,000000+100 */
+    background: rgb(69,72,77); /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  rgba(69,72,77,1) 25%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(69,72,77,1) 25%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(69,72,77,1) 25%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    padding: 0;
+    color: white;
+    font-size: 25px;
+    font-family: 'Heebo', sans-serif;
+}
+#login_button{
+    background-color:#ffad2b;
+}
+.navbar-brand{
+    font-family: 'Permanent Marker', cursive;
+    font-size: 30px;
+    margin-left: 15px;
+}
+body{
+    background: #373B44;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4286f4, #373B44);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4286f4, #373B44); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+ 
+
+ 

@@ -1,0 +1,21 @@
+.boardname{
+    font-size: 20px;
+    font-weight: bold;
+}
+.clt{
+    background-color: #62dd4f;
+    background-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
+
+}
+h2{
+    font-family: 'Patrick Hand', cursive;
+    font-size: 60px;
+
+}
+.define_text{
+    color: white;
+    font-size: 35px;
+}
+hr{
+    color: white;
+}

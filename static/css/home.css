@@ -1,0 +1,49 @@
+body{
+    background-color: #030303;
+}
+#jumbo{
+    background-color: #030303;
+}
+#jumbo_main{
+    color:#ffad2b;
+    font-size: 8vw;
+    font-family: 'Acme', sans-serif;
+}
+#jumbo_point{
+    color: #ffad2b;
+    font-family: 'Acme', sans-serif;
+    font-size: 3vw;
+    
+}
+#headt{
+    margin-top: 70px;
+    font-size: 4vw;
+    font-family: 'Lobster', cursive;
+}
+.r2{
+    height: 100px;
+}
+
+.notif{
+    font-size: 50px;
+    margin-top: 20%;
+    font-family: 'Lobster', cursive;
+
+}
+
+.midtext{
+    text-align: center;
+    font-size: 70px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.img-fluid{
+    border-radius: 50px;
+}
+.lastx{
+    font-size: 30px;
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 40px;
+}

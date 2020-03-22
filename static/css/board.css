@@ -1,0 +1,55 @@
+.col-lg-3{
+    background-color: #008c41;
+    background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
+
+}
+
+#frm{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+.name{
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-family: 'Baloo 2', cursive;
+}
+
+#cardbtn{
+    border-radius: 100px;
+    margin-left: 0;
+}
+.fa-trash{
+    color: black;
+
+}
+.clut{
+    background-color: #e6f7f6;
+background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+}
+
+#lbtn{
+    border-radius: 100px;
+}
+
+.card_name{
+    font-size: 20px;
+    font-family: 'Comfortaa', cursive;
+    color: black;
+}
+.fa-trash{
+    font-size: 30px;
+    margin-left: 100%;
+    margin-top: 100%;
+    position: relative;
+    
+}
+.fa-trash:hover{
+    color: red;
+
+}
+#frm2{
+   
+    bottom: 0px;
+}

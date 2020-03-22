@@ -1,0 +1,111 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{%static 'css/layout.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:900|Noto+Sans+KR&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+    <title>{%block title%}{%endblock%}</title>
+    {%block head%}{%endblock%}
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark" id="main_nav">
+        <a class="navbar-brand" href="#">eBoard <i class="fas fa-pencil-alt"></i></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mr-auto">
+            <li class="nav-item {%if request.path == '/' %}active{%endif%}">
+              <a class="nav-link ml-3" href="{%url 'home_page'%}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {%if request.path == '/dashboard/' %}active{%endif%}">
+              <a class="nav-link ml-3" href="{%url 'dashboard_page'%}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                
+             </li>
+          </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                {%if not request.user.is_authenticated%}
+                <a class="nav-link" href="{%url 'login_page'%}"><button class="btn btn-md " id="login_button">Login | Signup</button></a>
+                {%endif%}
+                {%if request.user.is_authenticated%}
+                <a class="nav-link d-inline ml-3" href="" style="color: white;">Hello, {{user}}</a>
+                <a class="nav-link d-inline ml-3" href="{%url 'logout_page'%}"><button class="btn btn-md " id="login_button">Logout</button></a>
+
+                {%endif%}
+              </li>
+            </ul>
+        </div>
+      </nav>
+    {%block content%}{%endblock%}
+
+
+
+
+    <footer class="footer-distributed">
+ 
+        <div class="footer-left">
+      
+            <h3>About<span> eBoard</span></h3>
+
+            <p class="footer-links">
+                <a href="#">Home</a>
+                |
+                <a href="#">Blog</a>
+                |
+                <a href="#">About</a>
+                |
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">© 2019 eBoard Pvt. Ltd.</p>
+        </div>
+
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                  <p><span>
+                     IIT BHU, Varanasi</span>
+                    Uttar Pradesh - 221005</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 8612 451256</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@eduonix.com">support@eboard.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the company</span>
+                We help Technology, Design, Management, Science and Humanities evolve.</p>
+            <div class="footer-icons">
+           
+            </div>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

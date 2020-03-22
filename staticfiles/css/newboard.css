@@ -1,0 +1,19 @@
+.bname{
+    font-size: 5vw;
+    text-align: center;
+    font-family: 'Baloo Tammudu 2', cursive;
+    margin-top: 80px;
+    pointer-events: none;
+}
+.far{
+    font-size: 5vw;
+    
+}
+.container{
+    width: 70%;
+}
+.btt{
+    border-radius: 100%;
+    background-color: #3F5B97;
+    outline: none;
+}

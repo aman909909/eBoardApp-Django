@@ -1,0 +1,31 @@
+{%extends 'base/layout.html'%}
+{%load static%}
+{%block title%}New{%endblock%}
+
+{%block head%}
+    <link rel="stylesheet" href="{%static 'css/newboard.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu+2&display=swap" rel="stylesheet">
+    <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+
+{%endblock%}
+{%block content%}
+
+<div class="container d-flex text-center">
+    <form method="POST" action="{%url 'newboard_page'%}" style="width: 50%;" class="ml-auto mr-auto">
+        {%csrf_token%}
+        <div class="form-group">
+          <div class="bname">Board Name</div>
+          <input type="text" class="form-control" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Project planning...">
+        </div>
+        <div class="form-group">
+            <div class="bname">Description</div>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="description" aria-describedby="emailHelp" placeholder="Add text to describe this project">
+        </div>
+        
+       
+        <button type="submit" class="btn btn-primary mt-5 text-center ml-auto mr-auto btt"><i class="far fa-arrow-alt-circle-down text-center"></i></button>
+    
+    </form>
+</div>
+
+{%endblock%}

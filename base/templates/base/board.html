@@ -1,0 +1,87 @@
+{% extends 'base/layouts.html'%}
+{%load static%}
+{%block head%}
+  <link rel="stylesheet" href="{%static 'css/board.css'%}">
+  <link href="https://fonts.googleapis.com/css?family=Baloo+2&display=swap" rel="stylesheet">
+  <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
+{%endblock%}
+{%block title%}ePool | Board{%endblock%}
+
+{%block content%}
+    
+    <div class="all_list" style="position: absolute; " >
+        <div class="row">
+            <div class="col-8">
+                <div class="row mt-3 ml-5">
+                    {%for i in l%}
+                    <div class="col-lg-3 mb-5 mr-5 rounded col-md-4 col-6 ">
+                          <div class="name text-center">{{i.list_name}} </div>
+                          <hr>
+                          <ul>
+                             
+                            {%for j in c%}
+                            {%if j.dad is i.id%}
+                            <a href="">
+                              <li class="card_name">{{j.title}}  >></li>
+                            </a>
+                            {%endif%}
+                          {%endfor%} 
+                          </ul>
+                      
+                          
+                          <form method="POST" action="{%url 'addcard_page' z=i.id%}" class="mt-5" id="frm2">
+                              <hr>
+                              {%csrf_token%}
+                            <div class="form-row align-items-center">
+                              
+                              <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Name</label>
+                                <input type="text" class="form-control mb-2" id="inlineFormInput" name="name" placeholder="Add new card">
+                                
+                              <div class="col-auto pl-0">
+                                
+                                <button type="submit" class="btn btn-primary mb-2" id="cardbtn"><i class="fas fa-plus"></i>
+                                </button>
+                              </div>
+
+                            </div>
+                            <a href="{%url 'delete_list' z=i.id%}" style="position: absolute; bottom: 0; right: 30px;"><i class="fas fa-trash mt-1"></i></a>
+
+                        </div>
+                          </form>
+                    </div>
+                    {%endfor%}
+                </div>
+
+            </div>
+            <div class="col-4 border-left" style="width: 2000px;">
+                <div id="frm" class="d-none d-lg-block">
+                    <form method="POST" action="{%url 'newlist_page' z=val %}" style="width: 50%;" class="ml-auto mr-auto">
+                        {%csrf_token%}
+                        <div class="form-group border pr-3 pl-3 pt-3 pb-3 mt-5 border-secondary rounded clut">
+                          <label for="exampleInputEmail1" style="font-family: 'Baloo 2', cursive; font-size: 20px;">Add new list...</label>
+                          <hr class="mt-0">
+                          <div class="row">
+                              <div class="col-8">
+                                <input style="width: 100%;" type="text" class="form-control d-inline" id="exampleInputEmail1" name="name" aria-describedby="emailHelp" placeholder="Project plan..." autocomplete="tel-area-code">
+                              </div>
+                              <div class="col-3 ml-0">
+                                <button type="submit" class="btn btn-info d-inline mb-1" id="lbtn"><i style="font-size: 18px;" class="fas fa-plus" ></i></button>
+                                
+                              </div>
+                          </div>
+                         
+
+                        </div>
+                      
+                    
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{%endblock%}

@@ -1,0 +1,31 @@
+.jumbotron{
+    font-family: 'Lato', sans-serif;
+    padding-bottom: 40px;
+    font-size: 20px;
+    background-color: #70c4eb;
+    background-image: url("https://www.transparenttextures.com/patterns/60-lines.png");
+
+}
+#mainh1{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    font-size: 4rem;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: 'Fredoka One', cursive;
+    letter-spacing: 10px;
+    color: white;
+    font-weight: lighter;
+}
+#par{
+    font-family: 'Indie Flower', cursive;
+    font-size: 4rem;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: black
+}
+body{
+    background-color: black;
+}
