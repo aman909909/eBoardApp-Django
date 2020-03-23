@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'myproject',
         'USER': 'myprojectuser',
         'PASSWORD': 'password',
-        'HOST': 'https://eboardapp.herokuapp.com/',
+        'HOST': '255.255.255.255',
         'PORT': '',
     }
 }
