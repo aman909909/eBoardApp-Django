@@ -29,7 +29,7 @@ SECRET_KEY = "m191007005"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['eboardapp.herokuapp.com']
 
 
 # Application definition
