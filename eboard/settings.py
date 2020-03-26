@@ -17,9 +17,9 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DATABASE_URL = os.environ['DATABASE_URL']
+#DATABASE_URL = os.environ['DATABASE_URL']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+#conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -29,7 +29,7 @@ SECRET_KEY = "m191007005"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['eboardapp.herokuapp.com']
+ALLOWED_HOSTS = ['eboardapp.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -84,17 +84,22 @@ TEMPLATE_DIRS = (
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql_psycopg2',
+   ##    'USER': 'amanashish',
+     #   'PASSWORD': 'm191007005',
+      #  'HOST': '125.125.125.125',
+       # 'PORT': '5432',
+    #}
+#}
+#DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'newdb',
-        'USER': 'amanashish',
-        'PASSWORD': 'm191007005',
-        'HOST': '125.125.125.125',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
