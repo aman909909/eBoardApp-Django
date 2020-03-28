@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from django.core.mail import send_mail
 
 from .models import board, nlist, card
 
@@ -46,6 +46,7 @@ def signup(request):
                 messages.info(request,"Password is too short")
                 return render(request,'base/signup.html')
             us = User()
+
             us.username = name
             us.email = email
             us.set_password(pwd1)
