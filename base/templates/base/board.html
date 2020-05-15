@@ -22,7 +22,7 @@
                              
                             {%for j in c%}
                             {%if j.dad is i.id%}
-                            <a href="">
+                            <a href="{%url 'card_page' z=j.id %}">
                               <li class="card_name">{{j.title}}  >></li>
                             </a>
                             {%endif%}

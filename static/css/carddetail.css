@@ -1,0 +1,17 @@
+.tit{
+    font-size: 40px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: 800;
+}
+
+.time{
+    font-size: 25px;
+}
+.des{
+    font-size: 23px;
+}
+.cmnt{
+    font-size: 23px;
+    color: wheat;
+    font-family: 'Baloo Thambi 2', cursive;
+}

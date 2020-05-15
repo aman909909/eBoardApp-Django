@@ -1,0 +1,64 @@
+{%extends 'base/layout.html'%}
+{%load static%}
+{%block title%} Card{%endblock%}
+
+{%block head%}
+<link rel="stylesheet" href="{%static 'css/carddetail.css'%}">
+<link href="https://fonts.googleapis.com/css?family=Comic+Neue&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi+2&display=swap" rel="stylesheet">
+<script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+ {%endblock%}
+
+{%block content%}
+
+<div class="container pl-0">
+    {%for c in ca%}
+        <div class="tit text-light mt-5">{{c.title}}</div>
+        <hr>
+        <div class="row">
+            <div class="col-7 jumbotron mt-4 mr-5 ml-3">
+            <div class="time text-danger"><i class="far fa-clock"></i> {{c.deadline}} </div>
+            <div class="des text-secondary mt-2">
+                <i class="far fa-clipboard"></i> {{c.des}}
+            </div>
+
+
+            </div>
+
+            <div class="col-4">
+                <form action="{%url 'card_page' c.id%}" method="POST" class="text-light">
+                    {%csrf_token%}
+                    {{form}}
+                    <button class="btn btn-warning mt-4">Change</button>
+                </form>
+            </div>
+        </div>
+ 
+        <div class="tit" style="font-size: 60px;">
+            <i class="fas fa-comment"></i>
+        </div>
+        <hr class="mt-0">
+        <div class="jumbotron ml-0 pt-3 bg-dark">
+            <div>
+                {%for d in cmnt%}
+               <div class="cmnt" ><li>{{d.comment}}</li></div>
+                {%endfor%}
+            </div>
+            <form method="POST" action="{%url 'card_comment' z=c.id %}" style="width: 40%;">
+                {%csrf_token%}
+                <div class="form-group mt-5">
+                    <label for="exampleInputPassword1" class="text-light">Add new comment</label>
+                    <input type="text" class="form-control" name="ct" id="exampleInputPassword1" placeholder="New comment">
+                </div>
+                <button type="submit" class="btn btn-info">
+                    Add 
+                </button>
+            </form>
+        </div>
+        <a href="{%url 'card_delete' z=c.id%}">
+            <button class="btn btn-danger">Delete this card</button>
+        </a>
+    {%endfor%}
+</div>
+
+{%endblock%}

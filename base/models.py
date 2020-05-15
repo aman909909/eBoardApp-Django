@@ -16,4 +16,10 @@ class nlist(models.Model):
 class card(models.Model):
     title = models.CharField(max_length=30)
     dad = models.IntegerField()
+    des = models.TextField(default='None')
+    deadline = models.DateField(auto_now_add=True)
+
+class cardComment(models.Model):
+    owner = models.ForeignKey(card, on_delete=models.CASCADE, null=True)
+    comment = models.TextField()
 

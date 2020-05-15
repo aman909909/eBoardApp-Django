@@ -85,9 +85,9 @@ TEMPLATE_DIRS = (
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-       'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'USER': 'amanashish',
+        'USER': 'amanashish',
         'PASSWORD': 'm191007005',
         'HOST': '125.125.125.125',
         'PORT': '5432',

@@ -6,7 +6,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 
-from .models import board, nlist, card
+from .models import board, nlist, card, cardComment
+from .forms import cardForm
+
 
 def home(request):
     return render(request, 'base/home.html')
@@ -45,12 +47,20 @@ def signup(request):
             if len(pwd1)<8:
                 messages.info(request,"Password is too short")
                 return render(request,'base/signup.html')
-            us = User()
+            
+            uss = User.objects.get(email = email)
+            if uss is None:
 
-            us.username = name
-            us.email = email
-            us.set_password(pwd1)
-            us.save()
+                 us = User()
+
+                 us.username = name
+                 us.email = email
+                 us.set_password(pwd1)
+                 us.save()
+            
+            else:
+                  messages.success(request,"Email already exists.")
+                  return redirect('signup_page')
 
             #p=UserProfile()
             #user = User.objects.get(username=name)
@@ -132,6 +142,7 @@ def addCard(request,z):
         c = card()
         c.title = request.POST['name']
         c.dad = z
+        
         c.save()
         fi = nlist.objects.all().filter(pk=z)
         nex = fi[0]
@@ -159,3 +170,45 @@ def dellist(request, z):
     ll.delete()
 
     return redirect('board_page',z=z)
+
+def cardDetail(request, z):
+
+    if request.method=='POST':
+        form = cardForm(request.POST)
+        if form.is_valid():
+             ca = card.objects.all().filter(id = z)
+             ca = ca[0]
+             new = form.cleaned_data['des']
+             print(new)
+             if new is not '':
+                ca.des = new
+             ca.deadline = form.cleaned_data['deadline']
+             ca.save()
+
+
+    ca = card.objects.all().filter(id = z)
+    form = cardForm()
+    cmnt = cardComment.objects.all().filter(owner = z)
+    return render(request, 'base/carddetail.html',{
+        'ca':ca,
+        'form':form,
+        'cmnt':cmnt
+    })
+
+def cardcmnt(request, z):
+    if request.method == 'POST':
+        ca = cardComment()
+        fi = card.objects.all().filter(id=z)
+        fi=fi[0]
+        ca.owner = fi
+        ca.comment = request.POST['ct']
+        ca.save()
+        return redirect('card_page', z=z)
+
+
+def cardDelete(request, z):
+    ca = card.objects.all().filter(id=z)
+    ca.delete()
+    return redirect('home_page')
+
+
